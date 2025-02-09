@@ -108,6 +108,11 @@
 #    if defined(STM32F1XX) || defined(STM32F2XX) || defined(STM32F4XX) || defined(STM32L1XX)
 #        define USE_I2CV1
 #    endif
+
+#    if defined(STM32G0XX) || defined(STM32G4XX) || defined(STM32L5XX) || defined(STM32H7XX)
+#        define USE_USARTV3
+#    endif
+
 #endif
 
 // GD32 compatibility
@@ -134,6 +139,19 @@
 #        define PAL_PUPDR_FLOATING PAL_WB32_PUPDR_FLOATING
 
 #        define SPI_SCK_FLAGS PAL_MODE_ALTERNATE(SPI_SCK_PAL_MODE) | PAL_OUTPUT_TYPE_PUSHPULL | PAL_OUTPUT_SPEED_HIGHEST | PAL_WB32_CURRENT_LEVEL3
+#    endif
+#endif
+
+// AT32 compatibility
+#if defined(MCU_AT32)
+#    define CPU_CLOCK AT32_SYSCLK
+
+#    if defined(AT32F415)
+#        define USE_GPIOV1
+#        define USE_I2CV1
+#        define PAL_MODE_ALTERNATE_OPENDRAIN PAL_MODE_AT32_ALTERNATE_OPENDRAIN
+#        define PAL_MODE_ALTERNATE_PUSHPULL PAL_MODE_AT32_ALTERNATE_PUSHPULL
+#        define AUDIO_PWM_PAL_MODE PAL_MODE_ALTERNATE_PUSHPULL
 #    endif
 #endif
 
