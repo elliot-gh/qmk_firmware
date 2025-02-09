@@ -25,7 +25,7 @@
 #define NO_ACTION_ONESHOT
 
 #define FORCE_NKRO
-#define DEBOUNCE 8
+#define DEBOUNCE 5
 
 #define RGB_MATRIX_SLEEP
 #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_CUSTOM_indicator_only

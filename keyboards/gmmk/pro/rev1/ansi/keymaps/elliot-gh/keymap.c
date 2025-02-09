@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 static bool gui_locked = false;
-static const uint16_t RESET_HOLD_MS = 3000;
+static const uint16_t RESET_HOLD_MS = 5000;
 static uint16_t reset_timer = 0;
 static uint8_t prev_mode_ind = RGB_MATRIX_CUSTOM_indicator_only;
 
@@ -107,20 +107,20 @@ void turn_on_indicators(const uint8_t index_arr[], const uint8_t size) {
 }
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    // caps lock, a, s
-    static const uint8_t arr_caps_lock[] = {3, 9, 15};
+    // side led 05, caps lock, asdfghjkl;', enter, pgdown, side led 16
+    static const uint8_t arr_caps_lock[] = {80, 3, 9, 15, 21, 26, 31, 37, 42, 47, 53, 59, 64, 96, 86, 81};
     if (host_keyboard_led_state().caps_lock) {
         turn_on_indicators(arr_caps_lock, sizeof(arr_caps_lock) / sizeof(arr_caps_lock[0]));
     }
 
-    // F9, F10, F11
-    static const uint8_t arr_scroll_lock[] = {50, 56, 61};
+    // side led 01, esc, F1-12, del, side led 12
+    static const uint8_t arr_scroll_lock[] = {67, 0, 6, 12, 18, 23, 28, 34, 39, 44, 50, 56, 61, 66, 69, 68};
     if (host_keyboard_led_state().scroll_lock) {
         turn_on_indicators(arr_scroll_lock, sizeof(arr_scroll_lock) / sizeof(arr_scroll_lock[0]));
     }
 
-    // lctrl, lgui, lalt
-    static const uint8_t arr_gui_lock[] = {5, 11, 17};
+    // side led 07, lctrl, lgui, lalt, lshift, space, ralt, fn, rctrl, left, down, right, side led 18
+    static const uint8_t arr_gui_lock[] = {87, 5, 11, 17, 33, 49, 55, 65, 95, 97, 79, 88};
     if (gui_locked) {
         turn_on_indicators(arr_gui_lock, sizeof(arr_gui_lock) / sizeof(arr_gui_lock[0]));
     }
