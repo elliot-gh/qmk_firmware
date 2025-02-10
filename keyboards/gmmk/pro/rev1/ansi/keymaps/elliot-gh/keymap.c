@@ -119,8 +119,8 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         turn_on_indicators(arr_scroll_lock, sizeof(arr_scroll_lock) / sizeof(arr_scroll_lock[0]));
     }
 
-    // side led 07, lctrl, lgui, lalt, lshift, space, ralt, fn, rctrl, left, down, right, side led 18
-    static const uint8_t arr_gui_lock[] = {87, 5, 11, 17, 33, 49, 55, 65, 95, 97, 79, 88};
+    // side led 08, lctrl, lgui, lalt, lshift, space, ralt, fn, rctrl, left, down, right, side led 19
+    static const uint8_t arr_gui_lock[] = {91, 5, 11, 17, 33, 49, 55, 65, 95, 97, 79, 92};
     if (gui_locked) {
         turn_on_indicators(arr_gui_lock, sizeof(arr_gui_lock) / sizeof(arr_gui_lock[0]));
     }
@@ -139,4 +139,4 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 //  80, Side led 05    4, Sh_L     10, Z       16, X        22, C        27, V        32, B        38, N        43, M        48, ,<       54, .<       60, /?                    90, Sh_R     94, Up        82, End        81, Side led 16
 //  83, Side led 06    5, Ct_L     11,Win_L    17, Alt_L                              33, SPACE                              49, Alt_R    55, FN                    65, Ct_R     95, Left     97, Down      79, Right      84, Side led 17
 //  87, Side led 07                                                                                                                                                                                                        88, Side led 18
-//  91, Side led 08
+//  91, Side led 08                                                                                                                                                                                                        92, Side led 19
