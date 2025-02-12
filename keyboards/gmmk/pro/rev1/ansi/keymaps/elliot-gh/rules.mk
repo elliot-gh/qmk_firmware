@@ -5,4 +5,4 @@ ENCODER_MAP_ENABLE = yes
 MOUSEKEY_ENABLE = no
 EXTRAKEY_ENABLE = yes
 RGB_MATRIX_CUSTOM_USER = yes
-DEBOUNCE_TYPE = sym_eager_pk
+DEBOUNCE_TYPE = asym_eager_defer_pk
